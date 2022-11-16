@@ -1,9 +1,8 @@
-# Programa Top v__ -  Tiempo _______
+# Programa Top v26 -  Tiempo parcial
 
 ## Mentores 👩🏻‍🏫👨🏼‍🏫
-- [Nombre del mentor](profiles/mentor-principal.md)
-- Mentor 2
-- Mentor 3
+- Sergio Jaramillo
+- Daniel Espitia
 
 ## Estudiantes 👩🏻‍💻🧑🏼‍💻
 - Estudiante 1
