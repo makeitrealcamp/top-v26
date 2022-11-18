@@ -1,4 +1,4 @@
-# Programa Top v26 -  Tiempo parcial
+# Programa Top v26 - Tiempo parcial
 
 ## Mentores 👩🏻‍🏫👨🏼‍🏫
 - Sergio Jaramillo
