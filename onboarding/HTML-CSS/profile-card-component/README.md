@@ -1,21 +1,12 @@
-# Make It Real - Credit Card Form
+# Make It Real - Profile Card Component
 
 <img src="./design/desktop-preview.jpg" width="700">
 
 ## Reto
 
-Su desafío es construir este formulario interactivo de detalles de la tarjeta y lograr que se parezca lo más posible al diseño.
+Su desafío es construir este componente de tarjeta de perfil y lograr que se parezca lo más posible al diseño.
 
 Puedes usar cualquier herramienta que te guste para ayudarte a completar el desafío. Entonces, si tienes algo que te gustaría practicar, no dudes en intentarlo.
-
-Sus usuarios deberían poder:
-
-- Complete el formulario
-- Recibir mensajes de error cuando se envía el formulario si:
-   - Cualquier campo de entrada está vacío
-   - El número de tarjeta, la fecha de caducidad o los campos CVC tienen un formato incorrecto
-- Ver el diseño óptimo según el tamaño de pantalla de su dispositivo
-- Vea los estados de desplazamiento, activo y de enfoque para elementos interactivos en la página
 
 ## Diseño
 
@@ -28,30 +19,33 @@ Los diseños se crearon con los siguientes anchos:
 - Mobile: 375px
 - Desktop: 1440px
 
-## Colores
+### Colores
 
-### Primary
+**Primary**
 
-- Linear gradient (active input border): hsl(249, 99%, 64%) to hsl(278, 94%, 30%)
-- Red (input errors): hsl(0, 100%, 66%)
+- Red: hsl(1, 90%, 64%)
+- Blue: hsl(219, 85%, 26%)
 
-### Neutral
+**Neutral**
 
 - White: hsl(0, 0%, 100%)
-- Light grayish violet: hsl(270, 3%, 87%)
-- Dark grayish violet: hsl(279, 6%, 55%)
-- Very dark violet: hsl(278, 68%, 11%)
+- Very light grayish blue: hsl(210, 60%, 98%)
+- Light grayish blue 1: hsl(211, 68%, 94%)
+- Light grayish blue 2: hsl(205, 33%, 90%)
+- Grayish blue: hsl(219, 14%, 63%)
+- Dark grayish blue: hsl(219, 12%, 42%)
+- Very dark blue: hsl(224, 21%, 14%)
 
-## Tipografía
+### Tipografia
 
-### Body Copy
+**Body Copy**
 
-- Font size: 18px
+- Font size (name and stats): 18px
 
 ### Font
 
-- Family: [Space Grotesk](https://fonts.google.com/specimen/Space+Grotesk)
-- Weights: 500
+- Family: [Kumbh Sans](https://fonts.google.com/specimen/Kumbh+Sans)
+- Weights: 400, 700
 
 ## Construyendo tu proyecto
 
