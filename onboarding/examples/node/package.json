@@ -1,0 +1,17 @@
+{
+  "name": "node-example",
+  "version": "1.0.0",
+  "description": "Esto es un ejemplo de mi primer npm",
+  "main": "npmIntro.js",
+  "scripts": {
+    "dev": "nodemon npmIntro.js"
+  },
+  "author": "Sergio Jaramillo. Github (SergioJaramilloL)",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  },
+  "dependencies": {
+    "colors": "^1.4.0"
+  }
+}
