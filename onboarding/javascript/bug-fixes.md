@@ -1,22 +1,30 @@
 # Bug Fixes
 
-## Fix Error: manipulación de arreglos
-¡Ayuda a corregir todos los errores en la función `incrementItems`! ¡Está destinado a agregar 1 a cada elemento en el arreglo!
+## Fix error: Aplanando un arreglo
+
+Estoy tratando de escribir una función para aplanar una matriz de subarreglos en un arreglo. (Supongamos que no sé que hay un método .flat() en el prototipo de Array).
+
+En otras palabras, quiero transformar esto: `[[1, 2], [3, 4]]` en `[1, 2, 3, 4]`.
+
+Aquí está mi código:
 
 ```js
-function incrementItems(arr) {
-  for (let i = 0; i < array.length; i++) {
-    arr[i] === arr[i] + 1
+function flatten(arr) {
+  const result = []
+  for (let i = 0; i < arr.length; i++) {
+    result.concat(arr[i])
   }
-
-  return array
+  return result
 }
 ```
-| Test Case                        | Expected        |
-|----------------------------------|-----------------|
-| incrementItems([0, 1, 2, 3])     | [1, 2, 3, 4]    |
-| incrementItems([2, 4, 6, 8])     |  [3, 5, 7, 9]   |
-| incrementItems([-1, -2, -3, -4]) | [0, -1, -2, -3] |
+Pero... ¡no parece estar funcionando! Arregle mi código para que aplane correctamente la matriz.
+
+| Test Case                                | Expected                      |
+|------------------------------------------|-------------------------------|
+| flatten([[1, 2], [3, 4]])                | `[1, 2, 3, 4]`                |
+| flatten([[1], [2], [3], [4]])            | `[1, 2, 3, 4]`                |
+| flatten([["a", "b"], ["c", "d"]])        | `["a", "b", "c", "d"]`        |
+| flatten([[true, false], [false, false]]) | `[true, false, false, false]` |
 
 ## Fix Error: Valor vs. Referencia de Tipos
 Cree una función que devuelva `true` si dos arreglos contienen valores idénticos y `false` en caso contrario.
@@ -54,3 +62,22 @@ Las siguientes pruebas deben pasar:
 | checkEquals([4, 5, 6], [4, 5, 6])  | `true`   |
 | checkEquals([4, 7, 6], [4, 5, 6])  | `false`  |
 | checkEquals([4, 7, 6], [4, 6, 7])  | `false`  |
+
+
+## Fix Error: manipulación de arreglos
+¡Ayuda a corregir todos los errores en la función `incrementItems`! ¡Está destinado a agregar 1 a cada elemento en el arreglo!
+
+```js
+function incrementItems(arr) {
+  for (let i = 0; i < array.length; i++) {
+    arr[i] === arr[i] + 1
+  }
+
+  return array
+}
+```
+| Test Case                        | Expected        |
+|----------------------------------|-----------------|
+| incrementItems([0, 1, 2, 3])     | [1, 2, 3, 4]    |
+| incrementItems([2, 4, 6, 8])     |  [3, 5, 7, 9]   |
+| incrementItems([-1, -2, -3, -4]) | [0, -1, -2, -3] |
