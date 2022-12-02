@@ -1,5 +1,23 @@
 # Bug Fixes
 
+## Fix error: Clonar un arreglo
+
+El siguiente código intenta agregar un clon de una arreglo a sí mismo. No hay ningún mensaje de error, pero los resultados no son los esperados. ¿Puedes arreglar el código?
+
+```js
+function clone(arr) {
+  arr.push(arr)
+  return arr
+}
+```
+
+| Test Case                  | Expected                                   |
+|----------------------------|--------------------------------------------|
+| clone([1, 1])              | `[1, 1, [1, 1]]`                           |
+| clone([1, 2, 3])           | `[1, 2, 3, [1, 2, 3]]`                     |
+| clone(["x", "y"])          | `["x", "y", ["x", "y"]]`                   |
+| clone([true, false, true]) | `[true, false, true, [true, false, true]]` |
+
 ## Fix error: Aplanando un arreglo
 
 Estoy tratando de escribir una función para aplanar una matriz de subarreglos en un arreglo. (Supongamos que no sé que hay un método .flat() en el prototipo de Array).

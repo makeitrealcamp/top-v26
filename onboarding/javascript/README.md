@@ -1,3 +1,21 @@
+## Devolver propiedad de objeto anidado
+Escribir una función que tome un objeto como argumento. En algunos casos, el objeto contiene otros objetos con algunas propiedades profundamente anidadas.
+Devuelve el valor de la propiedad 'b' del objeto 'a' dentro del objeto original si existe, si no, devuelve `undefined`.
+
+```js
+function myFunction(obj) {
+
+  return
+}
+
+```
+| Test Case                  | Expected   |
+|----------------------------|------------|
+| myFunction({a:1})          | `undefined`|
+| myFunction({a:{b:{c:3}}})  | {c:3}      |
+| myFunction({b:{a:1}})      | `undefined`|
+| myFunction({a:{b:2}})      | 2          |
+
 ## Creación de objetos Javascript
 Escribe una función que tome dos arreglos (a y b) como argumentos.
 Crear un objeto que tenga propiedades con claves 'a' y valores correspondientes 'b'. Devolver el objeto.
