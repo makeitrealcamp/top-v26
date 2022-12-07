@@ -1,3 +1,54 @@
+## Combinar dos objetos con claves iguales
+Escribir una función que tome dos objetos como argumentos. Devuelve un objeto con las propiedades de ambos objetos. Si ambos objetos tienen propiedades con la misma clave, la propiedad del objeto devuelto debe tener el valor de la propiedad del primer objeto.
+
+```js
+function myFunction(objX, objY) {
+
+  return
+}
+
+```
+
+| Test Case                                | Expected   |
+|------------------------------------------|------------|
+| myFunction({a:1,b:2,c:3},{d:4,b:5,e:6})  | {a:1,b:2,c:3,d:4,e:6}  |
+| myFunction({a:1,b:2,c:3},{a:4,d:5,e:6})  | {a:1,b:2,d:5,e:6}  |
+| myFunction({a:1,b:2,c:3},{d:4,b:5,c:6})  | {a:1,b:2,c:3,d:4}  |
+
+## Eliminar una propiedad de un objeto
+Escribir una función que tome un objeto y un string como argumentos. Eliminar la propiedad del objeto con clave igual al string.
+
+```js
+function myFunction(obj, key) {
+
+  return
+}
+
+```
+
+| Test Case                      | Expected   |
+|--------------------------------|------------|
+| myFunction({a:1,b:2,c:3},'b')  | {a:1,c:3}  |
+| myFunction({a:1,b:2,c:3},'a')  | {b:2,c:3}  |
+| myFunction({a:1,b:2,c:3},'c')  | {a:1,b:2}  |
+
+## Sumar valores de objeto
+Escribir una función que tome un objeto como argumento. Devuelve la suma de todos los valores de las propiedades del objeto.
+
+```js
+function myFunction(obj) {
+
+  return
+}
+
+```
+
+| Test Case                      | Expected   |
+|--------------------------------|------------|
+| myFunction({a:1,b:2,c:3})      | 6          |
+| myFunction({j:9,i:2,x:3,z:4})  | 18         |
+| myFunction({w:15,x:22,y:13})   | 50         |
+
 ## Devolver propiedad de objeto anidado
 Escribir una función que tome un objeto como argumento. En algunos casos, el objeto contiene otros objetos con algunas propiedades profundamente anidadas.
 Devuelve el valor de la propiedad 'b' del objeto 'a' dentro del objeto original si existe, si no, devuelve `undefined`.
