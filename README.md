@@ -59,4 +59,4 @@ Los lineamientos para los proyectos individuale y grupales son estos:
     2. Descripción de la aplicación.
     3. Metodología (Jira, Github, SCRUM, sprintes)
     4. Tecnologías (React, Material, Express, [Socket.io](http://socket.io/), MongoDB, )
-    5. Diagrama de como esta distribuida su aplicacion (arquitectura) backend, frontend, servicios extras
+    5. Diagrama de como esta distribuida su aplicacion (arquitectura) backend, frontend, servicios extras.
