@@ -1,4 +1,4 @@
-# Programa Top v26 -  Tiempo parcial
+# Programa Top v26 - Tiempo parcial
 
 ## Mentores 👩🏻‍🏫👨🏼‍🏫
 - Sergio Jaramillo
@@ -9,41 +9,6 @@
 - Estudiante 2
 - Estudiante 3
 - ...
-
-## Como es un dia de estudio durante el programa TOP?
-
-### 8:30 am - 10:00 am:
-Clase Magistral con mentor principal
-
-### 10:00 am - 1:30 pm:
-Pueden ocurrir varias actividades en este rango de tiempo
-- Clase de habilidades blandas
-- Clase de ingles
-- Reuniones con mentores de apoyo
-- Trabajar, codificar, en tu proyecto grupal/personal
-- Resolver dudas con los mentores.
-- Planeacion del sprint
-- Demo del entregable anterior
-- Retrospectiva del spint
-- Terminar los retos o misiones que son asignados en clase
-
-### 01:00 pm - 2:30 pm
-Tiempo para almorzar
-
-### 02:30 pm - 03:30 pm:
-Clase Magistral con mentor principal
-
-### 03:30 pm - 6:30 pm:
-Pueden ocurrir varias actividades en este rango de tiempo
-- Clase de habilidades blandas
-- Clase de ingles
-- Reuniones con mentores de apoyo
-- Trabajar, codificar, en tu proyecto grupal/personal
-- Resolver dudas con los mentores.
-- Planeacion del sprint
-- Demo del entregable anterior
-- Retrospectiva del spint
-- Terminar los retos o misiones que son asignados en clase
 
 ## Entregables proyecto grupal 💻🤝
 
@@ -94,4 +59,4 @@ Los lineamientos para los proyectos individuale y grupales son estos:
     2. Descripción de la aplicación.
     3. Metodología (Jira, Github, SCRUM, sprintes)
     4. Tecnologías (React, Material, Express, [Socket.io](http://socket.io/), MongoDB, )
-    5. Diagrama de como esta distribuida su aplicacion (arquitectura) backend, frontend, servicios extras
+    5. Diagrama de como esta distribuida su aplicacion (arquitectura) backend, frontend, servicios extras.
