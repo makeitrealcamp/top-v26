@@ -1,0 +1,81 @@
+/* selector universal */
+* {
+  margin: 0;
+  text-decoration: none;
+}
+
+/* selector por tipo */
+
+p{
+  color: orange
+}
+
+body {
+  height: 100vh;
+}
+
+header {
+  background-color: purple;
+  width: 100%;
+  height: 10%;
+  color: white
+}
+
+div {
+  width: 100%;
+  height: 80%;
+  display: flex;
+  flex-direction: row;
+}
+
+aside {
+  width: 60%;
+  background-color: greenyellow;
+  padding: 50px;
+  border: solid 5px black;
+  margin: 50px;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  background-color: aquamarine;
+  padding: 50px;
+  color: #B23E25 
+}
+
+footer {
+  height: 10%;
+  background-color: yellow
+}
+
+/* selector por id */
+
+#title-secondary {
+  color: brown;
+}
+
+/* selector por clase */
+
+.title-third {
+  color: aquamarine
+}
+
+ /* combinadores */
+
+h1, a {
+  background-color: red;
+}
+
+div > p {
+  text-decoration: underline;
+}
+
+main .input-text {
+  background-color: black ;
+}
+main #input-text-two {
+  background-color: black ;
+}
+
