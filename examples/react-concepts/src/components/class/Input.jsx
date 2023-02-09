@@ -18,7 +18,7 @@ class Input extends Component {
 
   componentDidMount() {
     console.log(
-      "Ya se renderizó el componente!! -- Hacer llamado se side effects (APIS)"
+      "componentDidMount!!!. Ya se renderizó el componente!! -- Hacer llamado se side effects (APIS)"
     );
   }
 
@@ -27,7 +27,7 @@ class Input extends Component {
   }
 
   componentWillUnmount() {
-    console.log("componentWillUnmount...");
+    console.log("componentWillUnmount... Se desmontó el componente");
   }
 
   render() {
