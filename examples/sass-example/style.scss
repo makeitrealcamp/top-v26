@@ -1,0 +1,14 @@
+$mainColor: blue;
+
+h1 {
+  background-color: gold;
+  color: $mainColor;
+}
+
+header {
+  section {
+    span {
+      color: $mainColor;
+    }
+  }
+}
