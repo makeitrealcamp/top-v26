@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Input from "./components/class/Input";
 import InputFunction from "./components/function/InputFunction";
 import Header from "./components/class/Header";
+import CssModules from "./components/function/CssModules";
 import "./App.css";
 
 function App() {
@@ -13,7 +14,7 @@ function App() {
     <div
       className="App"
       style={{
-        color: "red",
+        color: "black",
         textAlign: "center",
       }}
     >
@@ -40,6 +41,7 @@ function App() {
 
       <br />
       <h2>Text: {text}</h2>
+      <CssModules />
     </div>
   );
 }
