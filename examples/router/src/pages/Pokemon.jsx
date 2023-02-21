@@ -5,7 +5,7 @@ import { Footer } from "../components/Footer";
 
 const Pokemon = () => {
   const [characters, setCharacters] = useState([]);
-  // const [loader, setLoader] = useState(true);
+  const [loader, setLoader] = useState(true);
 
   const getOnePokemon = async (url) => {
     const response = await fetch(url);
@@ -20,20 +20,28 @@ const Pokemon = () => {
     const response = await fetch(url);
     const data = await response.json();
 
-    /*await data.results.forEach(async (item) => {
-      const image = await getOnePokemon(item.url);
-      pokemons.push({ name: item.name, image: image });
-      console.log("forEach... ");
-    });*/
-
-    for (let i = 0; i < data.results.length; i++) {
+    // For común
+    /*for (let i = 0; i < data.results.length; i++) {
       const item = data.results[i];
       const image = await getOnePokemon(item.url);
       pokemons.push({ name: item.name, image: image });
+    }*/
+
+    // For in = (index)
+    /*for (let index in data.results) {
+      console.log("For in get index", index);
+      const item = data.results[index];
+      const image = await getOnePokemon(item.url);
+      pokemons.push({ name: item.name, image: image });
+    }*/
+
+    // For of (value)
+    for (let item of data.results) {
+      console.log("For of get value of each item", item);
+      const image = await getOnePokemon(item.url);
+      pokemons.push({ name: item.name, image: image });
     }
-
-    console.log("Pokemons", pokemons);
-
+    setLoader(false);
     setCharacters(pokemons);
   };
 
@@ -45,7 +53,10 @@ const Pokemon = () => {
     return (
       <div>
         {characters.map((character, index) => (
-          <div key={index}> un textp {character.name}</div>
+          <div key={index}>
+            {character.name}
+            <img src={character.image} alt={character.name} />
+          </div>
         ))}
       </div>
     );
@@ -54,6 +65,7 @@ const Pokemon = () => {
   return (
     <>
       <Header>Header</Header>
+      {loader && <div>Loading....</div>}
       {characters.length >= 1 && renderPokemons()}
       <Footer>Footer</Footer>
     </>
