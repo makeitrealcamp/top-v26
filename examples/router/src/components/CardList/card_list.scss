@@ -1,0 +1,5 @@
+@import "../../styles/mixins.scss";
+
+.card-list {
+  @include flexbox();
+}
