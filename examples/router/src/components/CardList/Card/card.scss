@@ -2,10 +2,11 @@
 @import "../../../styles/mixins.scss";
 
 .card {
-  width: 33%;
+  width: 100%;
   border: 1px solid $secondaryColor;
   border-radius: 5px;
   padding: 14px;
+  margin: 14px;
   @include flexbox(flex, space-around);
 
   // .card__img
@@ -25,5 +26,19 @@
 
   &__title {
     max-width: 120px;
+  }
+}
+
+// Tablet
+@media (min-width: 451px) and (max-width: 850px) {
+  .card {
+    width: 35%;
+  }
+}
+
+// Desktop
+@media (min-width: 851px) {
+  .card {
+    width: 27%;
   }
 }

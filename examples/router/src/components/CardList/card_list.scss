@@ -1,5 +1,22 @@
 @import "../../styles/mixins.scss";
+@import "../../styles/globals.scss";
 
 .card-list {
+  border: 1px solid red;
   @include flexbox();
+  flex-direction: column;
+}
+
+// Tablet
+@media (min-width: 451px) and (max-width: 850px) {
+  .card-list {
+    justify-content: center;
+  }
+}
+
+@media (min-width: 451px) {
+  .card-list {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
 }

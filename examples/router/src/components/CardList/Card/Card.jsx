@@ -2,9 +2,13 @@ import React from "react";
 
 import "./card.scss";
 
-const Card = ({ name, image }) => {
+const Card = ({ name, image, id, handleClick }) => {
+  const redirect = () => {
+    handleClick(id);
+  };
+
   return (
-    <div className="card">
+    <div className="card" onClick={redirect}>
       <div class="card__img">
         <img src={image} alt={name} />
       </div>

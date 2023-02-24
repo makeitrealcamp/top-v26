@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 
 import { Header } from "../components/Header";
 import { Footer } from "../components/Footer";
+import { CardList } from "../components/CardList";
 
 const Pokemon = () => {
   const [characters, setCharacters] = useState([]);
@@ -49,18 +50,7 @@ const Pokemon = () => {
     getAllPokemons();
   }, []);
 
-  const renderPokemons = () => {
-    return (
-      <div>
-        {characters.map((character, index) => (
-          <div key={index}>
-            {character.name}
-            <img src={character.image} alt={character.name} />
-          </div>
-        ))}
-      </div>
-    );
-  };
+  const renderPokemons = () => <CardList list={characters} />;
 
   return (
     <>
