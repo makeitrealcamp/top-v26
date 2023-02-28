@@ -1,11 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 
 import { Header } from "../components/Header";
 import { Footer } from "../components/Footer";
 import { CardList } from "../components/CardList";
+import { Context } from "../context";
 
 const RickAndMorty = () => {
   const [characters, setCharacters] = useState([]);
+
+  const context = useContext(Context);
 
   const getAllCharacters = () => {
     const url = "https://rickandmortyapi.com/api/character";
@@ -14,6 +17,8 @@ const RickAndMorty = () => {
       .then((response) => response.json())
       .then((data) => {
         setCharacters(data.results);
+        context.rickAndMorty.characters = data.results;
+        context.redirectDetailsRoute = "/rickandmorty";
       })
       // Rejected
       .catch((error) => {

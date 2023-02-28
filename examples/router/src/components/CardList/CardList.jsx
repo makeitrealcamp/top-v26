@@ -1,12 +1,17 @@
-import React from "react";
-
+import React, { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import { Card } from "./Card";
-
+import { Context } from "../../context";
 import "./card_list.scss";
 
 const CardList = ({ list }) => {
-  const goToDetails = () => {
-    console.log("click ... goToDetails");
+  const navigate = useNavigate();
+  const context = useContext(Context);
+  const { redirectDetailsRoute } = context;
+
+  const goToDetails = (id) => {
+    // redirect to details
+    navigate(`${redirectDetailsRoute}/${id}`);
   };
 
   return (
