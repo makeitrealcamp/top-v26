@@ -5,23 +5,24 @@ import { Footer } from "../components/Footer";
 import { CardList } from "../components/CardList";
 import { Context } from "../context";
 import { getAllCharacters } from "../services/rickAndMortyAPI";
+import useCharacters from "../hooks/useCharacters";
 
 const RickAndMorty = () => {
-  const [characters, setCharacters] = useState([]);
-
   const context = useContext(Context);
-
-  const getData = async () => {
-    const data = await getAllCharacters();
-    context.rickAndMorty.characters = data;
-    context.redirectDetailsRoute = "/rickandmorty";
-    setCharacters(data);
-  };
+  const {
+    data: characters = [],
+    isLoading,
+    isError,
+  } = useCharacters(getAllCharacters, []);
 
   // Rendered
   useEffect(() => {
-    getData();
-  }, []);
+    context.rickAndMorty.characters = characters;
+    context.redirectDetailsRoute = "/rickandmorty";
+  }, [characters, context]);
+
+  if (isLoading) return <h1>Loading...</h1>;
+  if (isError) return <p>We encountered an error fetching data</p>;
 
   return (
     <>
