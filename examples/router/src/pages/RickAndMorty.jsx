@@ -1,26 +1,21 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useEffect, useContext } from "react";
 
 import { Header } from "../components/Header";
 import { Footer } from "../components/Footer";
 import { CardList } from "../components/CardList";
 import { Context } from "../context";
+import { useCharacters, useData } from "../hooks";
 import { getAllCharacters } from "../services/rickAndMortyAPI";
 
 const RickAndMorty = () => {
-  const [characters, setCharacters] = useState([]);
-
+  //const { characters } = useCharacters("ram");
+  const { data: characters } = useData([], getAllCharacters);
   const context = useContext(Context);
-
-  const getData = async () => {
-    const data = await getAllCharacters();
-    context.rickAndMorty.characters = data;
-    context.redirectDetailsRoute = "/rickandmorty";
-    setCharacters(data);
-  };
 
   // Rendered
   useEffect(() => {
-    getData();
+    context.rickAndMorty.characters = characters;
+    context.redirectDetailsRoute = "/rickandmorty";
   }, []);
 
   return (

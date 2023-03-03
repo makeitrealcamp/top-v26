@@ -9,7 +9,7 @@ const Card = ({ name, image, id, handleClick }) => {
 
   return (
     <div className="card" onClick={redirect}>
-      <div class="card__img">
+      <div className="card__img">
         <img src={image} alt={name} />
       </div>
       <h2 className="card__title">{name}</h2>

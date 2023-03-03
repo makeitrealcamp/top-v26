@@ -1,6 +1,5 @@
 export const getAllCharacters = async () => {
   const url = "https://rickandmortyapi.com/api/character";
-
   try {
     const request = await fetch(url);
     const data = await request.json();
