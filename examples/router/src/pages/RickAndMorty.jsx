@@ -13,16 +13,15 @@ const RickAndMorty = () => {
   const { data: characters } = useData([], getAllCharacters);
   const context = useContext(Context);
 
-  
-
-  
-  // Rendered
+  // Renderizado
   useEffect(() => {
-    context.rickAndMorty.characters = characters;
-    context.redirectDetailsRoute = "/rickandmorty";
-  }, []);
-
-  
+    if (characters && characters.length > 0) {
+      setLoader(false);
+      context.rickAndMorty.characters = characters;
+      context.redirectDetailsRoute = "/rickandmorty";
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [characters]);
 
   return (
     <>
