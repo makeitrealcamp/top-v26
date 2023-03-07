@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 
+import Loader from "../components/Loader/Loader";
 import { Header } from "../components/Header";
 import { Footer } from "../components/Footer";
 import { CardList } from "../components/CardList";
@@ -55,7 +56,7 @@ const Pokemon = () => {
   return (
     <>
       <Header>Header</Header>
-      {loader && <div>Loading....</div>}
+      {loader && <Loader props = "pokemon"/>}
       {characters.length >= 1 && renderPokemons()}
       <Footer>Footer</Footer>
     </>
