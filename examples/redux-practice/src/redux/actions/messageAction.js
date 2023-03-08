@@ -10,3 +10,17 @@ export const clearMessage = () => {
     type: "clear",
   };
 };
+
+export const setRepos = (payload) => {
+  return {
+    type: "setRepos",
+    payload,
+  };
+};
+
+export const getRepos = () => async (dispatch) => {
+  console.log("en getRepos");
+  const request = await fetch("https://api.github.com/users/mariadriada/repos");
+  const data = await request.json();
+  dispatch(setRepos(data));
+};
