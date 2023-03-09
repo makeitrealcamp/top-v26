@@ -1,14 +1,9 @@
-const messageReducer = (state, action) => {
+const messageReducer = (state = "", action) => {
   switch (action.type) {
     case "set":
-      return {
-        message: action.payload,
-      };
+      return action.payload;
     case "clear":
-      return {
-        message: "",
-      };
-
+      return "";
     default:
       return state;
   }

@@ -1,11 +1,19 @@
 import { connect } from "react-redux";
 import { setMessage, clearMessage } from "./redux/actions/messageAction";
+import { Counter } from "./components/Counter";
 
-function App(props) {
-  console.log(props);
+function App({ message, setMessage, clearMessage }) {
+  const handleChange = (e) => {
+    setMessage(e.target.value);
+  };
+
   return (
     <div className="App">
-      <h1>{props.message}</h1>
+      <input type="text" onChange={handleChange} value={message} />
+      <h1>{message}</h1>
+      <button onClick={clearMessage}>Clear</button>
+      <hr />
+      <Counter />
     </div>
   );
 }
@@ -16,7 +24,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   setMessage: (payload) => dispatch(setMessage(payload)),
-  clearMessasge: () => dispatch(clearMessage()),
+  clearMessage: () => dispatch(clearMessage()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
