@@ -1,2 +1,3 @@
 export const COUNTER_ADD = "COUNTER_ADD";
 export const COUNTER_SUBSTRACT = "COUNTER_SUBSTRACT";
+export const GET_REPOS = "GET_REPOS";

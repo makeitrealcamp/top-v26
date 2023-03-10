@@ -1,6 +1,7 @@
 import { connect } from "react-redux";
 import { setMessage, clearMessage } from "./redux/actions/messageAction";
 import { Counter } from "./components/Counter";
+import { Repos } from "./components/Repos";
 
 function App({ message, setMessage, clearMessage }) {
   const handleChange = (e) => {
@@ -14,6 +15,8 @@ function App({ message, setMessage, clearMessage }) {
       <button onClick={clearMessage}>Clear</button>
       <hr />
       <Counter />
+      <hr />
+      <Repos />
     </div>
   );
 }
