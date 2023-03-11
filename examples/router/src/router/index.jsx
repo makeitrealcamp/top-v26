@@ -4,7 +4,7 @@ import { RickAndMorty, Pokemon, RAMDetails } from "../pages";
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <div>hhhh</div>,
+    element: <div>Veremos el loader......</div>,
     errorElement: <div> Hubo un error!!</div>,
   },
   {
