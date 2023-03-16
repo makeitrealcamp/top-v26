@@ -8,7 +8,7 @@ const Card = ({ name, image, id, handleClick }) => {
   };
 
   return (
-    <div className="card" onClick={redirect}>
+    <div className="card" onClick={redirect} data-testid="card">
       <div className="card__img">
         <img src={image} alt={name} />
       </div>
