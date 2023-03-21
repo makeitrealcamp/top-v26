@@ -5,12 +5,12 @@ import { CardList } from "../components/CardList";
 import { Loader } from "../components/Loader";
 import { Context } from "../context";
 import { useCharacters, useData } from "../hooks";
-import { getAllCharacters } from "../services/pokemonAPI";
+import { getAllPokemon } from "../services/pokemonAPI";
 
 const Pokemon = () => {
   //const [characters, setCharacters] = useState([]);
   const [loader, setLoader] = useState(true);
-  const { data: characters } = useData([], getAllCharacters);
+  const { data: characters } = useData([], getAllPokemon);
    const context = useContext(Context);
 
 
@@ -44,15 +44,14 @@ const Pokemon = () => {
       pokemons.push({ name: item.name, image: image });
     }*/
 
-    // For of (value)
+  //   //For of (value)
   //   for (let item of data.results) {
   //     console.log("For of get value of each item", item);
   //     const image = await getOnePokemon(item.url);
   //     pokemons.push({ name: item.name, image: image });
   //   }
-  //   setLoader(false);
-  //   setCharacters(pokemons);
-  // };
+    
+   
 
   // Renderizado
   useEffect(() => {

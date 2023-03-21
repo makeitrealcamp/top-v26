@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { getAllCharacters } from "../services/rickAndMortyAPI";
+import { getAllPokemon } from "../services/pokemonAPI";
 
 // Return characters of any serie
 const useCharacters = (type) => {
@@ -10,7 +11,7 @@ const useCharacters = (type) => {
     if (type === "ram") {
       data = await getAllCharacters();
     } else if (type === "pokemon") {
-      // data = getAllPokemons
+       data = getAllPokemon();
     }
     setCharacters(data);
   };

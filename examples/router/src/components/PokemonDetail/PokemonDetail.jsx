@@ -1,25 +1,43 @@
 import React from "react";
 import "./pokemon-detail.scss";
 
-const PokemonDetail = ({ id, species, name, status, image, gender }) => {
+const PokemonDetail = ({
+  id,
+  name,
+  image,
+  hp,
+  type,
+  weight,
+  specialattack,
+  spdefense,
+}) => {
   return (
     <div className="pokemon-detail">
-      <span>
+      <span >
         <strong>Id:</strong> {id}
       </span>
-      <span>
-        <strong>Species:</strong> {species}
-      </span>
-      <span>
-        <strong>Gender:</strong> {gender}
-      </span>
+
       <span>
         <strong>Name:</strong> {name}
       </span>
       <span>
-        <strong>Status:</strong> {status}
+        <strong>Tipo:</strong> {type}
       </span>
-      <img src={image} alt="" />
+      <span>
+        <strong>Poder:</strong> {hp}
+      </span>
+      <span>
+        <strong>Peso:</strong> {weight}
+      </span>
+      <span>
+        <strong>Ataque Especial:</strong> {specialattack}
+      </span>
+      <span>
+        <strong>Defensa Especial:</strong> {spdefense}
+      </span>
+      <div className="poke2">
+      <img src={image} alt="" className="poke"/>
+      </div>
     </div>
   );
 };

@@ -3,6 +3,7 @@ export const getAllCharacters = async () => {
   try {
     const request = await fetch(url);
     const data = await request.json();
+    console.log(data.results);
     return data.results;
   } catch (error) {
     return error;

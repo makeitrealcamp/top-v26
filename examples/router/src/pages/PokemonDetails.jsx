@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Context } from "../context";
 import { PokemonDetail } from "../components/PokemonDetail";
-import { getOneCharacter } from "../services/rickAndMortyAPI";
+import { getOnePokemonById } from "../services/pokemonAPI";
 
 const PokemonDetails = () => {
   const [character, setCharacter] = useState({});
@@ -10,30 +10,34 @@ const PokemonDetails = () => {
   const context = useContext(Context);
   const { pokemon } = context || {};
   const { characters } = pokemon || [];
-  const { id, species, name, status, image, gender } = character || {};
+  const { id, name, image, hp, type, weight, specialattack, spdefense } =
+    character || {};
 
-  useEffect(() => {
-    const item = characters.find((item) => item.id === +idParam);
-    if (item) {
-      setCharacter(item);
-    } else {
-      getData(idParam);
-    }
-  }, []);
+  
+ useEffect(() => {
+   const item = characters.find((item) => item.id === +idParam);
+   if (item) {
+     setCharacter(item);
+   } else {
+     getData(idParam);
+   }
+ }, []);
 
-  const getData = async (id) => {
-    const data = await getOneCharacter(id);
+  const getData = async () => {
+    const data = await getOnePokemonById(idParam);
     setCharacter(data);
   };
 
   return (
-    <PokemonDetails
+    <PokemonDetail
       id={id}
-      species={species}
+      hp={hp}
+      type={type}
       name={name}
-      status={status}
       image={image}
-      gender={gender}
+      weight={weight}
+      specialattack={specialattack}
+      spdefense={spdefense}
     />
   );
 };
