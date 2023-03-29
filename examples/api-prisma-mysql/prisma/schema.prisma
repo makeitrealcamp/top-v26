@@ -9,7 +9,7 @@ datasource db {
 
 model gestor {
   idgestor       Int              @id @default(autoincrement())
-  name           String?          @db.VarChar(45)
+  name           String          @db.VarChar(45)
   apellido       String?          @db.VarChar(45)
   email          String?          @db.VarChar(45)
   phone          String?          @db.VarChar(45)
@@ -23,6 +23,7 @@ model gestor_project {
   idproject Int
   gestor    gestor  @relation(fields: [idgestor], references: [idgestor], onDelete: NoAction, onUpdate: NoAction, map: "fk_gestor_has_project_gestor1")
   project   project @relation(fields: [idproject], references: [idproject], onDelete: NoAction, onUpdate: NoAction, map: "fk_gestor_has_project_project1")
+  other     String  @db.VarChar(45)
 
   @@id([idgestor, idproject])
   @@index([idgestor], map: "fk_gestor_has_project_gestor1_idx")

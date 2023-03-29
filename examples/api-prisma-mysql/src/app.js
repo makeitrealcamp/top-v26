@@ -1,5 +1,6 @@
 import express from "express";
 import { PrismaClient } from "@prisma/client";
+import { routerGestor, routerProject } from "./routes/index.js";
 
 const prisma = new PrismaClient();
 const app = express();
@@ -12,18 +13,8 @@ app.get("/", (req, res) => {
 });
 
 // Select all gestores
-app.get("/gestor", async (req, res) => {
-  try {
-    const gestores = await prisma.gestor.findMany();
-    if (gestores.length >= 1) {
-      res.status(200).json(gestores);
-    } else {
-      res.status(204).json({ error: true, messageError: "No content" });
-    }
-  } catch (error) {
-    res.status(500).json({ error: true });
-  }
-});
+app.use("/gestor", routerGestor);
+app.use("/project", routerProject);
 
 // Select one  gestor
 app.get("/gestor/:id", async (req, res) => {
