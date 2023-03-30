@@ -57,6 +57,7 @@ model task {
 model task_state {
   idtask_state Int     @id @map("idtask-state")
   name         String? @db.VarChar(45)
+  description  String  @db.VarChar(1000)
   task         task[]
 
   @@map("task-state")

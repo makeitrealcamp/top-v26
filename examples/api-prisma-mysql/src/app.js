@@ -57,6 +57,23 @@ app.post("/gestor", async (req, res) => {
   }
 });
 
+//update a gestor
+app.put("/gestor/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const gestor = await prisma.gestor.update({
+      where: {
+        idgestor: +id,
+      },
+      data: req.body,
+    });
+    res.json(gestor);
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ error: true });
+  }
+});
+
 app.listen(4000, () => {
   console.log("Server Initialized...");
 });
