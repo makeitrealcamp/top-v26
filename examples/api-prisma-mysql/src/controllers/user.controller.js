@@ -1,12 +1,8 @@
 import { PrismaClient } from "@prisma/client";
 import jwt from "jsonwebtoken"
+import bcrypt from "bcrypt"
 
 const prisma = new PrismaClient();
-
-const user = {
-    username: "email@test.com",
-    passwd: "secret_passwd"
-}
 
 export const generateToken = (req, res) => {
   try {
@@ -23,29 +19,56 @@ export const generateToken = (req, res) => {
 
 // Middleware
 export const login = async (req, res, next) => {
-  const {username, passwd} = req.body
+  const {username: email, passwd: password} = req.body
   try {
-    if(username === user.username && passwd === user.passwd) {
-        req.body.user = {
-            name: "maria",
-            lastname: "giraldo"
-        } 
-        // generate token 
-        next()
-    }
-    else {
-        res.status(401)
-    }
+    const hash = bcrypt.hashSync(password, 12);
+    console.log('hash', hash)
+    const user = await prisma.user.findFirst({
+      where: {
+        email: email,
+        password: hash
+      }
+    })
+    console.log('user', user)  
   } catch (error) {
+    console.log(error)
     res.status(500).json({ error: true });
   }
 };
 
 // Middleware
 export const verifyToken = (req, res, next) => {
-    console.log("**********", req.header("Authorization"))
     const token = req.header("Authorization").split(" ")[1]
 
-    console.log("TOKEN ", token)
-    next()
+    try {
+      const decoded = jwt.verify(token, process.env.SECRET)
+      console.log(decoded)
+      const {exp: expDate} = decoded
+
+      //TODO: validate date
+      //expired?
+      if( Date.now()/1000 > expDate ) {
+        console.log('expired')
+        res.status(401).send()
+      }
+      else {
+        // valid user in bd
+       next()
+      }
+      
+      next()
+
+    } catch (error) {
+      res.status(401).send()
+    }
+}
+
+
+export const register = async (req, res) => {
+  const { email, password } = req.body
+  const hash = bcrypt.hashSync(password, 12);
+  const user = await prisma.user.create({
+    data: {email, password:hash}
+  })
+  res.status(201).json(user)
 }

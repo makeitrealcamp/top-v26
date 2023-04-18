@@ -6,17 +6,18 @@ import {
   updateGestor,
   deleteOneGestor,
 } from "../controllers/gestor.controller.js";
+import { verifyToken } from "../controllers/user.controller.js";
 
 const router = express.Router();
 
 // Select all gestores
-router.get("/", getAllGestor);
+router.get("/", verifyToken,  getAllGestor);
 
 // Select one  gestor
-router.get("/:id", getOneGestor);
+router.get("/:id", verifyToken, getOneGestor);
 
 //Create a gestor
-router.post("/", createGestor);
+router.post("/", verifyToken, createGestor);
 
 //update a gestor
 router.put("/:id", updateGestor);

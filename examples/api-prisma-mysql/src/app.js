@@ -22,6 +22,7 @@ app.use(express.json());
 app.use("/gestor", gestorRoutes);
 app.use("/project", projectRoutes);
 app.use("/gestor-project", gestorProjectRouter);
+app.use("/user", userRouter)
 
 app.listen(PORT, () => {
   console.log("Server Initialized...");
