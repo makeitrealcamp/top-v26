@@ -20,8 +20,8 @@ router.get("/:id", verifyToken, getOneGestor);
 router.post("/", verifyToken, createGestor);
 
 //update a gestor
-router.put("/:id", updateGestor);
+router.put("/:id", verifyToken, updateGestor);
 
-router.delete("/:id", deleteOneGestor);
+router.delete("/:id", verifyToken, deleteOneGestor);
 
 export default router;
