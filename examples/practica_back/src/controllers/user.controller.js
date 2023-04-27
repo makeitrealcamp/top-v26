@@ -53,3 +53,23 @@ export const login = async (req, res, next) => {
     res.status(500).json({ error: true });
   }
 };
+
+// Middleware
+export const verifyToken = (req, res, next) => {
+    const token = req.header("Authorization").split(" ")[1];
+  
+    try {
+      const decoded = jwt.verify(token, process.env.SECRET);
+      const { exp: expDate } = decoded;
+  
+      //expired?
+      if (Date.now() / 1000 > expDate) {
+        res.status(401).send();
+      } else {
+        // valid user in bd
+        next();
+      }
+    } catch (error) {
+      res.status(401).send();
+    }
+  };
