@@ -38,3 +38,19 @@ export const getAllNotes = async (req, res) => {
     res.status(500).json({ error: true });
   }
 };
+
+export const updateNote = async (req, res) => {
+    try {
+      const { id } = req.params;
+      const note = await prisma.notes.update({
+        where: {
+          idnotes: +id,
+        },
+        data: req.body,
+      });
+      res.json(note);
+    } catch (error) {
+      console.log(error);
+      res.status(500).json({ error: true });
+    }
+  };
