@@ -6,6 +6,7 @@ import gestorRoutes from "./routes/gestor.route.js";
 import projectRoutes from "./routes/project.route.js";
 import gestorProjectRouter from "./routes/gestorproject.route.js";
 import userRouter from "./routes/user.route.js"
+import { sendEmail } from "./controllers/email.controller.js";
 
 const app = express();
 
@@ -26,6 +27,7 @@ app.use("/gestor", gestorRoutes);
 app.use("/project", projectRoutes);
 app.use("/gestor-project", gestorProjectRouter);
 app.use("/user", userRouter)
+app.get("/email", sendEmail)
 
 export default app
 
