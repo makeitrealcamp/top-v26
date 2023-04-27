@@ -40,17 +40,31 @@ export const getAllNotes = async (req, res) => {
 };
 
 export const updateNote = async (req, res) => {
-    try {
-      const { id } = req.params;
-      const note = await prisma.notes.update({
-        where: {
-          idnotes: +id,
-        },
-        data: req.body,
-      });
-      res.json(note);
-    } catch (error) {
-      console.log(error);
-      res.status(500).json({ error: true });
-    }
-  };
+  try {
+    const { id } = req.params;
+    const note = await prisma.notes.update({
+      where: {
+        idnotes: +id,
+      },
+      data: req.body,
+    });
+    res.json(note);
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ error: true });
+  }
+};
+
+export const deleteOneNote = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const deleted = await prisma.notes.delete({
+      where: {
+        idnotes: +id,
+      },
+    });
+    res.json(deleted);
+  } catch (error) {
+    res.status(500).json({ error: true });
+  }
+};
