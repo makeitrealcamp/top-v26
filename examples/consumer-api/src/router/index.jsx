@@ -1,6 +1,7 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Login } from "../components/Login";
 import { GestorList } from "../components/GestorList";
+import Upload from "../components/Upload";
 
 const router = createBrowserRouter([
   {
@@ -15,6 +16,10 @@ const router = createBrowserRouter([
   {
     path: "/gestor",
     element: <GestorList />,
+  },
+  {
+    path: "/upload",
+    element: <Upload />,
   }
 ]);
 
