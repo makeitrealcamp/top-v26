@@ -17,10 +17,13 @@ function Login(props) {
         }
     })
     const data = await request.json()
-    
-    // Localstorage store
-    localStorage.setItem("user", JSON.stringify(data))
-    navigate("/gestor")
+    const {token} = data || {}
+
+    if(token) {
+      // Localstorage store
+      localStorage.setItem("user", JSON.stringify(data))
+      navigate("/gestor")
+    }
  }
 
   const handleSubmit = (e) => {
