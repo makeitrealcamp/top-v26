@@ -15,14 +15,11 @@ const transporter = nodemailer.createTransport({
 });
 
 export const sendEmail = async (req, res) => {
-  // send mail with defined transport object
-  let info = await transporter.sendMail({
-    from: '"Fred Foo 👻" <mariagiraldo4@gmail.com>', // sender address
-    to: "mariagiraldo4@gmail.com", // list of receivers
-    subject: "First email", // Subject line
-    html: "<b>Firt.....</b>", // html body
-  });
-
-  console.log("Message sent: %s", info.messageId);
-  res.send(info);
+  try {
+    // send mail with defined transport object
+    let info = await transporter.sendMail(req.body);
+    res.send(info);
+  } catch (error) {
+    res.status.send(500);
+  }
 };
