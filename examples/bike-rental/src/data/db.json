@@ -1,0 +1,58 @@
+{
+  "bikes": [
+    {
+      "id": "1",
+      "name": "bike 1",
+      "picture": "https://picsum.photos/200/300?random=3",
+      "type": "normal"
+    },
+    {
+      "id": "2",
+      "name": "bike 2",
+      "picture": "https://picsum.photos/200/300?random=4",
+      "type": "electrical"
+    },
+    {
+      "id": "3",
+      "name": "bike 3",
+      "picture": "https://picsum.photos/200/300?random=5",
+      "type": "old"
+    },
+    {
+      "id": "4",
+      "name": "bike 4",
+      "picture": "https://picsum.photos/200/300?random=3",
+      "type": "normal"
+    },
+    {
+      "id": "5",
+      "name": "bike 5",
+      "picture": "https://picsum.photos/200/300?random=4",
+      "type": "electrical"
+    },
+    {
+      "id": "6",
+      "name": "bike 6",
+      "picture": "https://picsum.photos/200/300?random=5",
+      "type": "old"
+    },
+    {
+      "id": "6",
+      "name": "bike 7",
+      "picture": "https://picsum.photos/200/300?random=3",
+      "type": "normal"
+    },
+    {
+      "id": "8",
+      "name": "bike 8",
+      "picture": "https://picsum.photos/200/300?random=4",
+      "type": "electrical"
+    },
+    {
+      "id": "9",
+      "name": "bike 9",
+      "picture": "https://picsum.photos/200/300?random=5",
+      "type": "old"
+    }
+  ]
+}
