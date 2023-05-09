@@ -3,6 +3,7 @@ import { ReactNode } from "react";
 export type StoreProviderProps = {
   children: ReactNode;
 };
+
 export enum bikeType {
   normal,
   electrical,
@@ -50,3 +51,6 @@ export interface InfoRent extends FormData {
   idBike: string;
 }
 
+export type PayButtonProps = {
+  handlePayment: () => void
+}
