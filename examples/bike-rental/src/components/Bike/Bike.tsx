@@ -19,7 +19,7 @@ const Bike: FC<BikeItem> = ({
   };
 
   return (
-    <Card sx={{ minWidth: 150, m: 1 }}>
+    <Card sx={{ minWidth: 150, m: 1 }} data-cy="card">
       <CardActionArea onClick={handleClick}>
         <CardMedia component="img" height="100" image={picture} alt={name} />
         <CardContent>

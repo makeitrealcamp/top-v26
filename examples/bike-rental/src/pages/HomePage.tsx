@@ -18,7 +18,7 @@ const HomePage = () => {
 
   return (
     <>
-      <Typography variant="h2" component="h1">
+      <Typography variant="h2" component="h1" data-cy="title">
         Bicycles to rent
       </Typography>
       <BikeList list={bikeList} />

@@ -149,7 +149,7 @@ const BikePage = () => {
       )}
       <Grid container spacing={2}>
         <Grid item xs={12} sm={12} md={12}>
-          <Typography variant="h2" component="h2">
+          <Typography variant="h2" component="h2" data-cy="title">
             Rent a bike
           </Typography>
           <PayButton handlePayment={handlePayment} />
@@ -158,7 +158,7 @@ const BikePage = () => {
           <Bike {...currentBike} />
         </Grid>
         <Grid item xs={12} sm={8} md={8}>
-          <FormBike handleSubmit={handleSubmit} />
+          <FormBike handleSubmit={handleSubmit}/>
         </Grid>
       </Grid>
       {

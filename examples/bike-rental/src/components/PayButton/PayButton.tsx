@@ -8,7 +8,7 @@ const PayButton: FC<PayButtonProps> = ({ handlePayment }: PayButtonProps) => {
       variant="contained"
       size="small"
       color="secondary"
-      type="submit"
+      type="button"
       onClick={handlePayment}
     >
       Pay
