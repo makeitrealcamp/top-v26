@@ -28,7 +28,7 @@ const FormBike: FC<FormBikeProps> = ({ handleSubmit }) => {
   };
 
   return (
-    <form onSubmit={handleSubmitForm}>
+    <form onSubmit={handleSubmitForm} data-cy='formbike'>
       <Card>
         <CardContent>
           <Stack spacing={0} direction="row" sx={{ marginBottom: 0 }}>

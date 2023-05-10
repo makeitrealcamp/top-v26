@@ -136,7 +136,7 @@ const BikePage = () => {
             variant="contained"
             size="small"
             color="secondary"
-            type="submit"
+            type="button"
             onClick={goToHome}
           >
             Back
