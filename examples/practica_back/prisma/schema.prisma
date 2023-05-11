@@ -1,0 +1,24 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model notes {
+  idnotes     Int     @id @default(autoincrement())
+  description String? @db.VarChar(4000)
+  user_iduser Int
+  user        user    @relation(fields: [user_iduser], references: [iduser], onDelete: NoAction, onUpdate: NoAction, map: "fk_notes_user")
+
+  @@index([user_iduser], map: "fk_notes_user_idx")
+}
+
+model user {
+  iduser   Int     @id @default(autoincrement())
+  email    String? @unique(map: "email_UNIQUE") @db.VarChar(45)
+  password String? @db.VarChar(255)
+  notes    notes[]
+}
