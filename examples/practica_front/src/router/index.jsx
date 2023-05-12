@@ -1,15 +1,23 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { RegisterPage } from "../pages";
+import { RegisterPage, AuthPage, HomePage, NotesPage } from "../pages";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <div>home</div>,
-    errorElement: <div> Hubo un error!!</div>
+    element: <HomePage />,
+    errorElement: <div> Hubo un error!!</div>,
   },
   {
     path: "/register",
     element: <RegisterPage />,
+  },
+  {
+    path: "/auth",
+    element: <AuthPage />,
+  },
+  {
+    path: "/notes",
+    element: <NotesPage />,
   },
 ]);
 

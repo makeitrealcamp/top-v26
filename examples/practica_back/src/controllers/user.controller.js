@@ -7,6 +7,7 @@ const prisma = new PrismaClient();
 export const register = async (req, res) => {
   try {
     const { email, password } = req.body;
+    console.log("áaaaaaaaaaaaa", req.body);
     const hash = bcrypt.hashSync(password, 12);
     const user = await prisma.user.create({
       data: { email, password: hash },
@@ -56,20 +57,20 @@ export const login = async (req, res, next) => {
 
 // Middleware
 export const verifyToken = (req, res, next) => {
-    const token = req.header("Authorization").split(" ")[1];
-  
-    try {
-      const decoded = jwt.verify(token, process.env.SECRET);
-      const { exp: expDate } = decoded;
-  
-      //expired?
-      if (Date.now() / 1000 > expDate) {
-        res.status(401).send();
-      } else {
-        // valid user in bd
-        next();
-      }
-    } catch (error) {
+  const token = req.header("Authorization").split(" ")[1];
+
+  try {
+    const decoded = jwt.verify(token, process.env.SECRET);
+    const { exp: expDate } = decoded;
+
+    //expired?
+    if (Date.now() / 1000 > expDate) {
       res.status(401).send();
+    } else {
+      // valid user in bd
+      next();
     }
-  };
+  } catch (error) {
+    res.status(401).send();
+  }
+};

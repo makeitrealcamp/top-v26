@@ -1,17 +1,19 @@
-import express from "express"
-import userRouter from "./src/routes/user.router.js"
-import noteRouter from "./src/routes/note.router.js"
+import express from "express";
+import cors from "cors";
+import userRouter from "./src/routes/user.router.js";
+import noteRouter from "./src/routes/note.router.js";
 
-const app = express()
+const app = express();
 
 app.get("/", (req, res) => {
-    res.send("Práctica API")
-} )
+  res.send("Práctica API");
+});
 
-app.use(express.json())
-app.use("/user", userRouter)
-app.use("/notes", noteRouter)
+app.use(cors());
+app.use(express.json());
+app.use("/user", userRouter);
+app.use("/notes", noteRouter);
 
-app.listen(4000, ()=> {
-    console.log('Server initialized!')
-})
+app.listen(4000, () => {
+  console.log("Server initialized!");
+});

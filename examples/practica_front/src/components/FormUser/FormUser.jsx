@@ -1,19 +1,21 @@
 import React from "react";
 import { Button, Form, Input } from "antd";
 
-export default function FormRegister({onFinish, onFinishFailed}) {
+export default function FormUser({
+  onFinish,
+  onFinishFailed,
+  buttonText,
+  children,
+}) {
   return (
     <>
       <Form
         name="basic"
-        labelCol={{
-          span: 8,
-        }}
-        wrapperCol={{
-          span: 16,
-        }}
         style={{
           maxWidth: 600,
+          border: "1px solid #242424",
+          borderRadius: "1rem",
+          padding: "2rem 1rem 0 1rem",
         }}
         initialValues={{
           remember: true,
@@ -48,14 +50,11 @@ export default function FormRegister({onFinish, onFinishFailed}) {
           <Input.Password />
         </Form.Item>
 
-        <Form.Item
-          wrapperCol={{
-            offset: 8,
-            span: 16,
-          }}
-        >
+        {children && <Form.Item>{children}</Form.Item>}
+
+        <Form.Item>
           <Button type="primary" htmlType="submit">
-            Register
+            {buttonText}
           </Button>
         </Form.Item>
       </Form>

@@ -1,16 +1,48 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { getAllNotes } from "../../services/notes";
+import {
+  getAllNotes,
+  deleteOneNote,
+  updateOneNote,
+} from "../../services/notes";
 
 const initialState = {
- notes: [],
- loading: false,
- error: false
+  notes: [],
+  loading: false,
+  error: false,
 };
 
+/** TODO:  apply token and get all notes, delete fake data*/
 export const getNotesAsync = createAsyncThunk(
   "notes/getNotes",
-  async () => {
+  async (params, thunkAPI) => {
+    const { token } = thunkAPI.getState().user;
     const data = await getAllNotes();
+
+    console.log("[noteReducer]: getNotesAsync", token);
+
+    const fakeDate = [
+      { id: 1, description: "note fake 1" },
+      { id: 1, description: "note fake 2" },
+      { id: 1, description: "note fake 3" },
+    ];
+    return fakeDate;
+  }
+);
+
+/** TODO: apply token and delete note like above*/
+export const deleteOneNoteAsync = createAsyncThunk(
+  "notes/deleteNote",
+  async (id) => {
+    const data = await deleteOneNote(id);
+    return data;
+  }
+);
+
+/** TODO: apply token and update note like above*/
+export const updateOneNoteAsync = createAsyncThunk(
+  "notes/updateNote",
+  async (note) => {
+    const data = await updateOneNote();
     return data;
   }
 );
@@ -20,8 +52,8 @@ const repoSlice = createSlice({
   initialState,
   reducers: {
     anyAction: (state, action) => {
-     // state.any = action.payload;
-    }
+      // state.any = action.payload;
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -32,6 +64,7 @@ const repoSlice = createSlice({
         state.loading = false;
         state.notes = action.payload;
       });
+    /**TODO: implement cases to more async actions */
   },
 });
 
@@ -39,7 +72,7 @@ const repoSlice = createSlice({
 export const { anyAction } = repoSlice.actions;
 
 // export state
-export const selectRepos = (state) => state.repositories;
+export const selectNoteState = (state) => state.notes;
 
 // export a reducer
 export default repoSlice.reducer;
