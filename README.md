@@ -1,7 +1,7 @@
 # Programa Top v26 - Tiempo parcial
 
 ## Mentores 👩🏻‍🏫👨🏼‍🏫
-- Sergio Jaramillo
+- María Giraldo
 - Daniel Espitia
 
 ## Estudiantes 👩🏻‍💻🧑🏼‍💻
