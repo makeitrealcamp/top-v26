@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "@types/node": "^20.1.7",
     "jsonwebtoken": "^9.0.0"
   }
 }
