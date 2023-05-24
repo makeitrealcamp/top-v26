@@ -1,16 +1,9 @@
-import dotenv from "dotenv";
-import express, { Express, Request, Response } from "express";
+import app from "./app";
+import config from "./config/config";
+import Database from "./config/database";
 
-dotenv.config();
-const app: Express = express();
-
-// Middleware to handle body.json in the request
-app.use(express.json());
-
-// Root route
-app.get("/", (req: Request, res: Response) => {
-  res.json({ message: "'Hello API mongo" });
-});
+const database = new Database();
+database.connect();
 
 app.listen(process.env.PORT || 3001, () => {
   console.log("Server initialized on port ", process.env.PORT);
