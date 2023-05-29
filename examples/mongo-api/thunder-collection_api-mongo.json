@@ -1,0 +1,108 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "api-mongo",
+    "dateExported": "2023-05-26T00:44:44.074Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "42075b7c-3700-466b-8714-ff6c41833ab8",
+            "colId": "54a4c1b3-c19a-4762-bd21-9b02cb9423e2",
+            "containerId": "",
+            "name": "root",
+            "url": "http://localhost:3001/",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2023-05-24T21:15:42.995Z",
+            "modified": "2023-05-24T22:53:31.471Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\": \"lote 5\",\n  \"product\": \"646e8dce8b65c4cc17143f3e\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "b3be970a-7edf-40cd-8887-ca8022109ae0",
+            "colId": "54a4c1b3-c19a-4762-bd21-9b02cb9423e2",
+            "containerId": "",
+            "name": "create a recipe",
+            "url": "http://localhost:3001/recipe",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2023-05-25T23:36:23.199Z",
+            "modified": "2023-05-26T00:41:28.866Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\": \"Paella\",\n  \"price\": 800000,\n  \"category\": \"Mexican\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "78965542-9533-43b2-933d-d2374b0b2059",
+            "colId": "54a4c1b3-c19a-4762-bd21-9b02cb9423e2",
+            "containerId": "",
+            "name": "get all",
+            "url": "http://localhost:3001/recipe",
+            "method": "GET",
+            "sortNum": 30000,
+            "created": "2023-05-26T00:37:14.044Z",
+            "modified": "2023-05-26T00:37:21.576Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "7d938a38-e420-416a-af66-78275dd051f9",
+            "colId": "54a4c1b3-c19a-4762-bd21-9b02cb9423e2",
+            "containerId": "",
+            "name": "get one",
+            "url": "http://localhost:3001/recipe/name/Arroz con dulce",
+            "method": "GET",
+            "sortNum": 40000,
+            "created": "2023-05-26T00:37:34.394Z",
+            "modified": "2023-05-26T00:44:05.752Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "bfc1581c-5ca4-4848-8ca3-8301f3ed607b",
+            "colId": "54a4c1b3-c19a-4762-bd21-9b02cb9423e2",
+            "containerId": "",
+            "name": "delete",
+            "url": "http://localhost:3001/recipe/name/Paella",
+            "method": "DELETE",
+            "sortNum": 50000,
+            "created": "2023-05-26T00:42:26.593Z",
+            "modified": "2023-05-26T00:42:50.412Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "2a25e344-52ae-43d7-b4d3-ffb15a567451",
+            "colId": "54a4c1b3-c19a-4762-bd21-9b02cb9423e2",
+            "containerId": "",
+            "name": "update",
+            "url": "http://localhost:3001/recipe/name/Arroz con leche",
+            "method": "PUT",
+            "sortNum": 60000,
+            "created": "2023-05-26T00:43:10.033Z",
+            "modified": "2023-05-26T00:43:44.461Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\": \"Arroz con dulce\"\n}",
+                "form": []
+            },
+            "tests": []
+        }
+    ]
+}

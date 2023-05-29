@@ -1,4 +1,4 @@
-import { Schema } from "mongoose";
+import mongoose, { Schema } from "mongoose";
 
 const RecipeSchema = new Schema({
   name: {
@@ -6,9 +6,7 @@ const RecipeSchema = new Schema({
     unique: true,
     require: true,
   },
-  price: {
-    type: Number,
-  },
+  price: Number,
   isVegetarian: {
     type: Boolean,
     default: false,
@@ -16,6 +14,14 @@ const RecipeSchema = new Schema({
   category: {
     type: String,
     require: true,
-    enum: ["..."], // TODO
+    enum: ["Mexican", "Colombian", "Vegetarian"],
+  },
+  created: {
+    type: Date,
+    default: Date.now(),
   },
 });
+
+const Recipe = mongoose.model("Recipe", RecipeSchema);
+
+export default Recipe;
