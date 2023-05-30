@@ -1,6 +1,7 @@
 import dotenv from "dotenv";
 import express, { Express, Request, Response } from "express";
 import RecipeRouter from "./routes/recipe";
+import IngredientRoutes from "./routes/ingredient";
 
 dotenv.config();
 const app: Express = express();
@@ -14,5 +15,6 @@ app.get("/", (req: Request, res: Response) => {
 });
 
 app.use("/recipe", RecipeRouter);
+app.use("/ingredient", IngredientRoutes);
 
 export default app;
