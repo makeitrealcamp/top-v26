@@ -20,7 +20,7 @@ const router = createBrowserRouter([
   {
     path: "/upload",
     element: <Upload />,
-  }
+  },
 ]);
 
 const CustomRouter = () => <RouterProvider router={router}></RouterProvider>;

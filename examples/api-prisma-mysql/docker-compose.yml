@@ -1,0 +1,44 @@
+version: "3.4"
+services:
+  # api-prisma:
+  #   image: node:18.0.0
+  #   container_name: api-prisma
+  #   entrypoint: /bin/sh
+  #   ports:
+  #     - 4000:4000
+  #   working_dir: /app
+  #   volumes:
+  #     - type: bind
+  #       source: ./
+  #       target: /app
+  #   tty: true
+  #   # environment:
+  #   # - DATABASE_URL="mysql://root:Maria123@localhost:3306/mydb"
+  #   # - PORT=4000
+  #   # - SECRET="$2a$12$V9TcJzy49ylH16DAgaOo.uIPeGAiXC0v7Tf2kAjJ4GSt//ALyBSB6"
+  #   # - TYPE_AUTH="OAuth2"
+  #   # - USER="mariagiraldo4@gmail.com"
+  #   # - CLIENT_ID="328974681246-bri8cem3dc4bc573fc8qr24lentf0ruu.apps.googleusercontent.com"
+  #   # - CLIENT_SECRET="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"
+  #   # - REFRESH_TOKEN="1//04VGtURdzYQnFCgYIARAAGAQSNwF-L9Irk7-sAfXFXPGBogouKI3_YuL5VuILpXsm4wvjD7k58pOWTlsYptUMjPkyEfaOEHV9MH8"
+  #   # - API_KEY="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"
+  #   depends_on:
+  #     - db-mysql
+
+  db-mysql:
+    image: mysql:8.0
+    cap_add:
+      - SYS_NICE
+    restart: always
+    environment:
+      - MYSQL_DATABASE=mydb
+      - MYSQL_ROOT_PASSWORD=Maria123
+    ports:
+      - "3307:3306"
+    volumes:
+      - ./projects-mysql-data:/var/lib/mysql
+      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
+    tty: true
+    # volumes:
+    #   - ./db:/var/lib/mysql
+    #   - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
