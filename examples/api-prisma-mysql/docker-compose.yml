@@ -1,16 +1,31 @@
+# version: "3"
+# services:
+#   db-mysql:
+#     image: mysql:8.0
+#     cap_add:
+#       - SYS_NICE
+#     restart: always
+#     environment:
+#       - MYSQL_DATABASE=mydb
+#       - MYSQL_ROOT_PASSWORD=Maria123
+#     ports:
+#       - "3307:3306"
+#     volumes:
+#       - ./projects-mysql-data:/var/lib/mysql
+#       # - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
+#     tty: true
+
 version: "3"
+
 services:
-  db-mysql:
-    image: mysql:8.0
-    cap_add:
-      - SYS_NICE
-    restart: always
-    environment:
-      - MYSQL_DATABASE=mydb
-      - MYSQL_ROOT_PASSWORD=Maria123
+  mongo:
+    container_name: mongo
+    image: mongo:3.2.12
     ports:
-      - "3307:3306"
+      - "27018:27017"
     volumes:
-      - ./projects-mysql-data:/var/lib/mysql
-      #- ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
-    tty: true
+      - mongo-data:/data/db:cached
+
+volumes:
+  mongo-data:
+    driver: local
