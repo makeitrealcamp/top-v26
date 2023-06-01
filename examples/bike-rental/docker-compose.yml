@@ -1,0 +1,18 @@
+version: "3"
+
+services:
+  api:
+    stdin_open: true
+    build:
+      context: .
+    ports:
+      - 3000:3000
+    command: npm run server
+
+  client:
+    stdin_open: true
+    build:
+      context: .
+    ports:
+      - "3005:5173"
+    command: npm run dev

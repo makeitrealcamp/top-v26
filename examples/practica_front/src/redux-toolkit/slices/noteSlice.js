@@ -15,8 +15,12 @@ const initialState = {
 export const getNotesAsync = createAsyncThunk(
   "notes/getNotes",
   async (params, thunkAPI) => {
+    // get the state from the store
     const { token } = thunkAPI.getState().user;
     const data = await getAllNotes();
+
+    // dispatch any action
+    thunkAPI.dispatch(deleteOneNoteAsync(...));
 
     console.log("[noteReducer]: getNotesAsync", token);
 
