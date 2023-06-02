@@ -6,7 +6,7 @@
   "main": "src/server.js",
   "scripts": {
     "test": "jest",
-    "dev": "nodemon ."
+    "dev": "nodemon . --host"
   },
   "keywords": [],
   "author": "Maria",

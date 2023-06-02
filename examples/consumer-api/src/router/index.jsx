@@ -6,7 +6,7 @@ import { Upload } from "../components/Upload";
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <div>home</div>,
+    element: <div style={{ backgroundColor: "red" }}>home ggggg</div>,
     errorElement: <div> Hubo un error!!</div>,
   },
   {
@@ -20,7 +20,7 @@ const router = createBrowserRouter([
   {
     path: "/upload",
     element: <Upload />,
-  }
+  },
 ]);
 
 const CustomRouter = () => <RouterProvider router={router}></RouterProvider>;

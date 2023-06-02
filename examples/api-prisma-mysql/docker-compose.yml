@@ -1,16 +1,32 @@
 version: "3"
 services:
-  db-mysql:
-    image: mysql:8.0
-    cap_add:
-      - SYS_NICE
-    restart: always
-    environment:
-      - MYSQL_DATABASE=mydb
-      - MYSQL_ROOT_PASSWORD=Maria123
+  # db-mysql:
+  #   image: mysql:8.0
+  #   cap_add:
+  #     - SYS_NICE
+  #   restart: always
+  #   environment:
+  #     - MYSQL_DATABASE=mydb
+  #     - MYSQL_ROOT_PASSWORD=Maria123
+  #   ports:
+  #     - "3307:3306"
+  #   volumes:
+  #     - db:/var/lib/mysql
+  #     - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
+  #   tty: true
+
+  api:
+    stdin_open: true
+    build:
+      context: .
     ports:
-      - "3307:3306"
+      - 4000:4000
+    command: npm run dev
     volumes:
-      - ./projects-mysql-data:/var/lib/mysql
-      #- ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
-    tty: true
+      - "/app/node_modules"
+    depends_on:
+      - db-mysql
+
+volumes:
+  db:
+    driver: local
