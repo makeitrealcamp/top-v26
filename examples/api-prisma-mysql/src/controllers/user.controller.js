@@ -9,6 +9,8 @@ export const generateToken = (req, res) => {
     const { user } = req.body;
     const payload = { ...user };
 
+    console.log(process.env.SECRET);
+
     const token = jwt.sign(payload, process.env.SECRET, { expiresIn: "1h" });
 
     res.status(200).json({ ...user, token });
@@ -26,7 +28,9 @@ export const login = async (req, res, next) => {
         email: email,
       },
     });
+    console.log(user);
     const isValidUser = bcrypt.compareSync(password, user.password);
+    console.log(isValidUser);
     if (isValidUser) {
       next();
     } else {

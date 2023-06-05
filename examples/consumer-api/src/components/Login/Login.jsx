@@ -1,37 +1,37 @@
 import React from "react";
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
+import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
 import { useNavigate } from "react-router-dom";
 
 function Login(props) {
- const navigate = useNavigate()
- const login = async (username, passwd) => {
-    const request = await fetch('http://localhost:4000/user/login', {
-        method: "POST",
-        body: JSON.stringify({
-            username, 
-            passwd
-        }),
-        headers:{
-            'Content-Type': 'application/json'
-        }
-    })
-    const data = await request.json()
-    const {token} = data || {}
+  const navigate = useNavigate();
+  const login = async (username, passwd) => {
+    const request = await fetch("http://localhost:4000/user/login", {
+      method: "POST",
+      body: JSON.stringify({
+        username,
+        passwd,
+      }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    const data = await request.json();
+    const { token } = data || {};
 
-    if(token) {
+    if (token) {
       // Localstorage store
-      localStorage.setItem("user", JSON.stringify(data))
-      navigate("/gestor")
+      localStorage.setItem("user", JSON.stringify(data));
+      navigate("/gestor");
     }
- }
+  };
 
   const handleSubmit = (e) => {
-    e.preventDefault()
-    const user = e.target.elements[0].value
-    const passwd = e.target.elements[1].value
-    login(user, passwd)
-  }
+    e.preventDefault();
+    const user = e.target.elements[0].value;
+    const passwd = e.target.elements[1].value;
+    login(user, passwd);
+  };
 
   return (
     <Form onSubmit={handleSubmit}>
@@ -57,4 +57,4 @@ function Login(props) {
   );
 }
 
-export default Login
+export default Login;

@@ -24,7 +24,7 @@ function GestorList(props) {
       });
   };
 
-  const update =  async (e) => {
+  const update = async (e) => {
     e.preventDefault();
     const name = e.target.elements[0].value;
     const apellido = e.target.elements[1].value;
@@ -34,7 +34,7 @@ function GestorList(props) {
 
     // Update in database
     await updateGestor(data, idGestor, user.token);
-    getData()
+    getData();
   };
 
   const updateGestor = async (body, idGestor, token) => {

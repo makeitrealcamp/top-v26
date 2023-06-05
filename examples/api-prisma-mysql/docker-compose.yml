@@ -1,32 +1,50 @@
 version: "3"
 services:
-  # db-mysql:
-  #   image: mysql:8.0
-  #   cap_add:
-  #     - SYS_NICE
-  #   restart: always
-  #   environment:
-  #     - MYSQL_DATABASE=mydb
-  #     - MYSQL_ROOT_PASSWORD=Maria123
-  #   ports:
-  #     - "3307:3306"
-  #   volumes:
-  #     - db:/var/lib/mysql
-  #     - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
-  #   tty: true
+  db-mysql:
+    image: mysql:8.0
+    cap_add:
+      - SYS_NICE
+    restart: always
+    environment:
+      - MYSQL_DATABASE=mydb
+      - MYSQL_ROOT_PASSWORD=Maria123
+    ports:
+      - "3307:3306"
+    volumes:
+      - db:/var/lib/mysql
+      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
+    tty: true
+    networks:
+      - my-network
 
   api:
+    container_name: api
     stdin_open: true
     build:
       context: .
     ports:
-      - 4000:4000
+      - "4000:4000"
     command: npm run dev
     volumes:
+      - .:/app
       - "/app/node_modules"
     depends_on:
       - db-mysql
+    environment:
+      - DATABASE_URL=mysql://root:Maria123@db-mysql:3306/mydb
+      - PORT=4000
+      - SECRET=$2a$12$V9TcJzy49ylH16DAgaOo.uIPeGAiXC0v7Tf2kAjJ4GSt//ALyBSB6
+    networks:
+      - my-network
+    tty: true
+    external_links:
+      - front:front
 
 volumes:
   db:
     driver: local
+
+networks:
+  my-network:
+    name: giveItANamePlease
+    driver: bridge

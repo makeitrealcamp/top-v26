@@ -3,6 +3,7 @@ import { login, generateToken, register } from "../controllers/user.controller.j
 
 const router = express.Router();
 
+
 //Create a project
 router.post("/login", login, generateToken);
 router.post("/", register)

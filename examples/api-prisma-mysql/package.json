@@ -6,7 +6,7 @@
   "main": "src/server.js",
   "scripts": {
     "test": "jest",
-    "dev": "nodemon . --host"
+    "dev": "nodemon  --legacy-watch . --host 0.0.0.0"
   },
   "keywords": [],
   "author": "Maria",

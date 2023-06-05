@@ -1,6 +1,7 @@
 version: "3"
 services:
   consumer-api:
+    container_name: front
     working_dir: /app
     stdin_open: true
     build:
@@ -12,3 +13,12 @@ services:
       - .:/app
       - /app/node_modules/
     tty: true
+    networks:
+      - my-proxy-net
+    external_links:
+      - api:api
+
+networks:
+  my-proxy-net:
+    external:
+      name: giveItANamePlease
