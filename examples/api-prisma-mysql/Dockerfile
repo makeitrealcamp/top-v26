@@ -4,3 +4,6 @@ COPY . /app
 
 RUN npm install
 
+# docker build . api-prisma
+# docker run
+
