@@ -4,3 +4,15 @@ services:
     image: "redis"
     ports:
       - "6379:6379"
+
+  api-node-redis:
+    build:
+      context: .
+    ports:
+      - 3000:3000
+    volumes:
+      - .:/usr/app
+
+volumes:
+  cache:
+    driver: local
