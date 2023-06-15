@@ -1,13 +1,25 @@
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View } from "react-native";
-import BaseLayout from "./layouts/BaseLayout";
-import GridLayout from "./layouts/GridLayout";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { LoginScreen, HomeScreen } from "./screens";
+
+const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
     <View style={styles.container}>
       <StatusBar translucent={false} style="auto" />
-      <GridLayout />
+      <NavigationContainer>
+        <Stack.Navigator>
+          <Stack.Screen
+            name="Home"
+            component={LoginScreen}
+            options={{ title: "Welcome" }}
+          />
+          <Stack.Screen name="Login" component={LoginScreen} />
+        </Stack.Navigator>
+      </NavigationContainer>
     </View>
   );
 }
@@ -22,15 +34,5 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "center",
     flexWrap: "wrap",
-  },
-  text: {
-    color: "red",
-    fontSize: 30,
-    backgroundColor: "yellow",
-    padding: 23,
-    borderWidth: 1,
-    borderColor: "black",
-    borderRadius: 40,
-    width: "100%",
   },
 });
