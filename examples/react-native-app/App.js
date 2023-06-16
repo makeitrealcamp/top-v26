@@ -11,13 +11,17 @@ export default function App() {
     <View style={styles.container}>
       <StatusBar translucent={false} style="auto" />
       <NavigationContainer>
-        <Stack.Navigator>
+        <Stack.Navigator initialRouteName="Login">
           <Stack.Screen
             name="Home"
-            component={LoginScreen}
+            component={HomeScreen}
             options={{ title: "Welcome" }}
           />
-          <Stack.Screen name="Login" component={LoginScreen} />
+          <Stack.Screen
+            name="Login"
+            component={LoginScreen}
+            style={styles.container}
+          />
         </Stack.Navigator>
       </NavigationContainer>
     </View>

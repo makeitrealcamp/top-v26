@@ -1,35 +1,51 @@
-import { useState } from "react";
-import { View } from "react-native";
+import { View, StyleSheet, Text, Dimensions } from "react-native";
 import { Input } from "../Input";
+import Button from "../Button";
 
-export default function () {
-  const [form, setForm] = useState({
-    user: "",
-    password: "",
-  });
-  const { user, password } = form;
+const windowHeight = Dimensions.get("window").height;
 
-  const handleChange = (values) => {
-    setForm((prev) => {
-      return { ...prev, [values.name]: values.value };
-    });
-  };
-
+export default function ({ user, password, handleChange, handleClick }) {
   return (
-    <View>
-      <Input
-        value={user}
-        setValue={handleChange}
-        label="Username:"
-        name="user"
-      />
-      <Input
-        value={password}
-        setValue={handleChange}
-        label="Password:"
-        name="password"
-        secureTextEntry={true}
-      />
+    <View style={[styles.container, styles.margin]}>
+      <Text style={styles.text}>Login</Text>
+      <View style={styles.item}>
+        <Input
+          value={user}
+          setValue={handleChange}
+          label="Username:"
+          name="user"
+        />
+        <Input
+          value={password}
+          setValue={handleChange}
+          label="Password:"
+          name="password"
+          secureTextEntry={true}
+        />
+        <Button text="Login" handleClick={handleClick} />
+      </View>
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    width: "100%",
+    alignItems: "center",
+    justifyContent: "center",
+    padding: 10,
+    flex: 1,
+    // height: windowHeight
+  },
+  margin: {
+    marginTop: 20,
+  },
+  item: {
+    flex: 5,
+    width: "100%",
+  },
+  text: {
+    flex: 2,
+    fontSize: 40,
+  },
+});
