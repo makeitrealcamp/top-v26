@@ -1,9 +1,6 @@
 import { View, Text } from "react-native";
+import Profile from "../components/Profile";
 
 export default function () {
-  return (
-    <View>
-      <Text>Profile scrren</Text>
-    </View>
-  );
+  return <Profile />;
 }
