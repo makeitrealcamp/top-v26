@@ -22,8 +22,8 @@ let counterId = 0;
 const resolvers = {
   Query: {
     clients: () => clients,
-    client: async ({ id }) => {
-      console.log("id");
+    client: async (_, { id }) => {
+      console.log("id", id);
       const currentUser = await clients.find(
         ({ id: currentId }) => id === currentId
       );
@@ -63,4 +63,3 @@ const server = new ApolloServer({
 server.listen().then(({ url }) => {
   console.log(`🚀  Server ready at ${url}`);
 });
-
