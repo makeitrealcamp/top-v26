@@ -4,8 +4,8 @@ import { createClient } from "contentful";
 const useContentful = () => {
   const client = createClient({
     space: "urd10tvlmnck",
-    accessToken: "2jAmZg7KasBIC8XPHEWgunmF9OnqZ6WBt2Mft4dAciE",
-    host: "cdn.contentful.com",
+    accessToken: "-zzilqxAgU7x5l72vgcEVvu_7i09AUztMTKhE3Prv6Q",
+    host: "preview.contentful.com",
   });
 
   const getArticles = async () => {
@@ -14,8 +14,9 @@ const useContentful = () => {
         content_type: "articles",
       });
       const { items } = articles;
+      console.log(items);
       const sanitizedData = items.map((item) => {
-        const img = item.fields.image.fields.file || "";
+        const img = item.fields.image.fields?.file || "";
         const { name, email } = item.fields?.author?.fields || {};
 
         return {
