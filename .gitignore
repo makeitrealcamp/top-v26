@@ -103,3 +103,6 @@ dist
 .tern-port
 
 projects-mysql-data
+
+# Local Netlify folder
+.netlify
