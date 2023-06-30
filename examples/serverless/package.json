@@ -8,5 +8,8 @@
   },
   "keywords": [],
   "author": "Maria",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.4.0"
+  }
 }
